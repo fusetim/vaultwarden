@@ -96,10 +96,10 @@ Determine whether to use deployment or statefulset
 {{/*
 Format the final domain of this vaultwarden instance
 */}}
-{{- define "fullDomain" -}}
-{{- if .Values.domain.port -}}
-{{- printf "https://%s:%s%s" .Values.domain.hostname .Values.database.port .Values.database.path -}}
-{{- else -}}
-{{- printf "https://%s%s" .Values.domain.hostname .Values.database.path -}}
-{{- end -}}
-{{- end -}}
+{{ define "vaultwarden.fullDomain" }}
+{{- if .Values.domain.port }}
+{{- printf "https://%s:%s%s" .Values.domain.hostname .Values.database.port .Values.database.path }}
+{{- else }}
+{{- printf "https://%s%s" .Values.domain.hostname .Values.database.path }}
+{{- end }}
+{{- end }}
