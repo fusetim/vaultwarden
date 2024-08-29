@@ -18,7 +18,7 @@ metadata:
     {{- . | toYaml | nindent 4 }}
 {{- end }}
 data:
-  DOMAIN: {{ .Values.domain | quote }}
+  DOMAIN: {{ include "fullDomain" | quote }}
   {{- if and .Values.smtp.host .Values.smtp.from }}
   SMTP_HOST: {{ .Values.smtp.host | quote }}
   SMTP_SECURITY: {{ .Values.smtp.security | quote }}
